@@ -1,0 +1,37 @@
+<%= form_for(location) do |f| %>
+  <% if location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :street, placeholder: "Street Address", autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :city, placeholder: "City"%>
+  </div>
+
+  <div class="field">
+    <%=f.text_field :state, placeholder: "State" %>
+
+    <div class="field form-group">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :lat, class: "form-control" %>
+  </div>
+   <div class="field form-group">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :lng, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

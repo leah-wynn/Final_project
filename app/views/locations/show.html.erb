@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @location.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @location.city %>
+</p>
+
+<strong>State:</strong>
+<%= @location.state %>
+
+
+
+<p>
+  <strong>Lat:</strong>
+  <%= @location.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @location.lng %>
+</p>
+
+
+<div id="location-map"></div>
+
+
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
+
+
+<%= javascript_tag do %>
+   var lat = <%= j @location.lat.to_s %>;
+   var lng = <%= j @location.lng.to_s %>;
+   var address = "<%= j @location.city %>";
+<% end %>

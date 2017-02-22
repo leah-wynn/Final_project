@@ -1,9 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-if(window.location.pathname == '/locations') {
+
+// if(window.location.pathname == '/locations') {
   $(document).ready(function (){
 
   var myCoords = new google.maps.LatLng(33.762638,-84.382169);
@@ -12,7 +10,7 @@ if(window.location.pathname == '/locations') {
   function initialize() {
     var mapOptions = {
        center: myCoords,
-       zoom: 16,
+       zoom: 7,
        scrollwheel: false,   
     }
 
@@ -43,4 +41,4 @@ if(window.location.pathname == '/locations') {
   google.maps.event.addDomListener(window, "load", initialize);
   })
 
-} 
+// } 

@@ -1,6 +1,10 @@
 class ProducersController < ApplicationController
   before_action :set_producer, only: [:show, :edit, :update, :destroy]
 
+  def producer_location
+    @location = Location.find(params[:id])
+  end
+
   # GET /producers
   # GET /producers.json
   def index
@@ -15,10 +19,13 @@ class ProducersController < ApplicationController
   # GET /producers/new
   def new
     @producer = Producer.new
+    @categories = Category.order(:name)
+
   end
 
   # GET /producers/1/edit
   def edit
+    @categories = Category.order(:name)
   end
 
   # POST /producers

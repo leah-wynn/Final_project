@@ -1,29 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.street %>
+  <h3><%= @location.name %></h3>
 </p>
-
 <p>
-  <strong>City:</strong>
-  <%= @location.city %>
+
+  <h4><%= @location.description %></h4>
 </p>
-
-<strong>State:</strong>
-<%= @location.state %>
-
-
-
 <p>
-  <strong>Lat:</strong>
-  <%= @location.lat %>
-</p>
+<strong>Address</strong>
+<%= @location.address %>
 
-<p>
-  <strong>Lng:</strong>
-  <%= @location.lng %>
-</p>
+<%= @location.latitude %>
+<%= @location.longitude %>
 
 
 <div id="location-map"></div>
@@ -36,7 +24,7 @@
 
 
 <%= javascript_tag do %>
-   var lat = <%= j @location.lat.to_s %>;
-   var lng = <%= j @location.lng.to_s %>;
+   var latitude = "<%= j @location.latitude.to_s %>";
+   var longitude = "<%= j @location.longitude.to_s %>";
    var address = "<%= j @location.city %>";
 <% end %>

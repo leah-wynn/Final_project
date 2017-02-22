@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  
 
   def nearby(lng1, lat1, lng2, lat2)
     if (lng1-lng2).abs <= 0.01 && (lat1-lat2).abs <= 0.01
@@ -24,10 +25,14 @@ class LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @categories = Category.order(:name)
+
   end
 
   # GET /locations/1/edit
   def edit
+  @categories = Category.order(:name)
+
   end
 
   # POST /locations
@@ -78,6 +83,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:address, :city, :lat, :lng, :state, :street)
+      params.require(:location).permit(:address, :city, :latitude, :longitude, :state, :street, :category_id, :name, :description)
     end
 end

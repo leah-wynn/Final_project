@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find Food</title>
+</head>
+<body>
+
+	<div class="center_it">
+
+  <h3><p style="margin:30px;">Connecting food provayors and artisians to the communities that might not know they exsist.</p>
+      <p> We focus on helping consumers find localy made food products and farmers markets.</p>
+  </h3>
+</div>
+<div id="index-map"></div>
+
+
+
+
+<%= javascript_tag "arr = #{@locations.to_json}" %>
+
+</body>
+</html>
+
+<div class="center_it">
+  <h2><strong><p style="margin:30px;">How It Works</p></strong></h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <table class="table">
+          <thead>
+            <tr>
+            <th><h2>Add Local Food</h2></th>
+            </tr>
+          </thead>
+          <tbody>
+            <td> <h4>Add locations of local goods. These can be locally crafted cheeses or your typical Sunday farmers market. Even if aunt Betsy makes pies for Thanksgiving, tell us where to look so others can find them.</h4>
+            </td>
+          </tbody>
+          </table>
+      </div>
+      <div class="col-md-4">
+        <table class="table">
+          <thead>
+            <tr>
+            <th><h2>Find Local Food</h2></th>
+            </tr>
+          </thead>
+          <tbody>
+            <td> <h4>Find fresh local goods, whether you're from out of town and don't know where to find fresh bread or you want to expand your knowledge of your local faire, find goods that you can love and support a local economy</h4></td>
+          </tbody>
+          </table>
+      </div>
+      <div class="col-md-4">
+        <table class="table">
+          <thead>
+            <tr>
+            <th><h2>Make Local Food</h2></th>
+            </tr>
+          </thead>
+          <tbody>
+            <td> <h4>Are you a local food maker? Whether it's bread, prosciutto, cheese or just your humble local farmer, make a Profile and tells us about what you're doing and how to find you.</h4> 
+            </td>
+          </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

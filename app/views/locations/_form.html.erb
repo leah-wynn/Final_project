@@ -1,4 +1,4 @@
-<%= form_for(location) do |f| %>
+<%=form_for location, :html=> {:id => 'location-form'} do |f| %>
   <% if location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
   <div class="conatiner">
 
-    <div class="field">
+  <div class="field">
     <%= f.text_field :name, placeholder: "Name", autofocus: true, class: "form-control" %>
   </div>
 
@@ -26,35 +26,71 @@
   </div>
 
   <div class="form-group">
-    <%= f.text_field :street, placeholder: "Street Address", class: "form-control" %>
+    <%= f.text_field :street, placeholder: "Street Address", class: "form-control", id: "street" %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :city, placeholder: "City", class: "form-control"%>
+    <%= f.text_field :city, placeholder: "City", class: "form-control", id: "city"%>
   </div>
 
   <div class="form-group">
-    <%=f.text_field :state, placeholder: "State", class: "form-control" %>
+    <%=f.text_field :state, placeholder: "State", class: "form-control", id: "state" %>
 
     <div class="field">
-    <%= f.text_field :latitude, placeholder: "Lat" %>
+    <%= f.hidden_field :latitude, placeholder: "Lat", id: "latitude" %>
   </div>
    <div class="field">
-    <%= f.text_field :longitude, placeholder: "Long" %>
+    <%= f.hidden_field :longitude, placeholder: "Long", id: "longitude" %>
   </div>
 
   <div class="actions">
   <%= f.submit %>
 
 <div id="location-map"></div>
+<script>
+$(document).ready(function () {
+    var lat = $("#latitude").val();
+    var lng = $("#longitude").val();
 
-<%= javascript_tag do %>
-   var latitude = "<%= j @location.latitude.to_s %>";
-   var longitude = "<%= j @location.longitude.to_s %>";
-   var address = "<%= j @location.city %>";
-<% end %>
+    if (lat && lng) {
+       renderMap(document.getElementById("location-map"), {
+           latitude: lat,
+           longitude: lng
+       }, null, 15);
+    }
+    var geocoder = new google.maps.Geocoder();
 
+    function computeGeocode(address, done) {
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+                return done({
+                    latitude: results[0].geometry.location.lat(),
+                    longitude: results[0].geometry.location.lng()
+                });
+            } else {
+                console.error(status);
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
 
+    $("input[type='submit']").click(function (e) {
+    e.preventDefault();
+        // Get our values
+        var street = $("#street").val();
+        var state = $("#city").val();
+        var city = $("#state").val();
+
+        // Call the geocoder and render the map
+        computeGeocode([street, state, city].join(" "), function (location) {
+            $("#latitude").val(location.latitude);
+            $("#longitude").val(location.longitude);
+            renderMap(document.getElementById("location-map"), location, null, 15);
+            $("#location-form").submit();
+        });
+    });
+});
+</script>
   </div>
 <% end %>
 </div>

@@ -4,39 +4,48 @@
 	<title>Find Food</title>
 </head>
 <body>
-
-	<div class="center_it">
-
-  <h3><p style="margin:30px;">Connecting food provayors and artisians to the communities that might not know they exsist.</p>
+  <br/>
+  <br/>
+  <br/>
+  <div class="center_it">
+    <h3>
+      <p>Connecting food provayors and artisians to the communities that might not know they exsist.</p>
       <p> We focus on helping consumers find localy made food products and farmers markets.</p>
-  </h3>
-</div>
-<div id="index-map"></div>
-
-
-
-
-<%= javascript_tag "arr = #{@locations.to_json}" %>
-
-</body>
-</html>
+    </h3>
+  <br/>
+  <br/>
+  <h2>
+    <i class="fa fa-location-arrow fa-1x" aria-hidden="true" style="color:#79e0a5"></i>
+    <%=link_to "Get Started", locations_path, class: "link" %></h2>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <div id="index-map"></div>
+  <%= javascript_tag "var arr = #{@locations.to_json}" %>
+  <script>
+$(document).ready(function(){
+  renderMap(document.getElementById("index-map"), arr[0], arr, 8)
+})
+</script>
 
 <div class="center_it">
-  <h2><strong><p style="margin:30px;">How It Works</p></strong></h2>
+  <h1><p style="margin:30px;">How It Works</p></h1>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <table class="table">
           <thead>
             <tr>
-            <th><h2>Add Local Food</h2></th>
+              <th><h2>Add Local Food</h2></th>
             </tr>
           </thead>
           <tbody>
-            <td> <h4>Add locations of local goods. These can be locally crafted cheeses or your typical Sunday farmers market. Even if aunt Betsy makes pies for Thanksgiving, tell us where to look so others can find them.</h4>
+            <td>
+              <h4>Add locations of local goods. If aunt Betsy sells pies on Sunday or you konw a great local farmer's market, tell us where to look so others can find them.</h4>
             </td>
           </tbody>
-          </table>
+        </table>
       </div>
       <div class="col-md-4">
         <table class="table">
@@ -46,9 +55,9 @@
             </tr>
           </thead>
           <tbody>
-            <td> <h4>Find fresh local goods, whether you're from out of town and don't know where to find fresh bread or you want to expand your knowledge of your local faire, find goods that you can love and support a local economy</h4></td>
+            <td> <h4>Find fresh local goods. Are you from out of town and don't know where to find fresh bread? Do you want to expand your knowledge of your locally made faire? Find goods that you can love and support a local economy</h4></td>
           </tbody>
-          </table>
+        </table>
       </div>
       <div class="col-md-4">
         <table class="table">
@@ -58,11 +67,13 @@
             </tr>
           </thead>
           <tbody>
-            <td> <h4>Are you a local food maker? Whether it's bread, prosciutto, cheese or just your humble local farmer, make a Profile and tells us about what you're doing and how to find you.</h4> 
+            <td> <h4>Are you a local food maker? Whether it's bread, prosciutto, cheese or you're just a humble local farmer, make a Profile and tells us about what you're doing and how to find you.</h4> 
             </td>
           </tbody>
-          </table>
+        </table>
       </div>
     </div>
-  </div>
+ </div>
 </div>
+</body>
+</html>

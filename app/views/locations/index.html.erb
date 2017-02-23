@@ -39,9 +39,10 @@
 Know a where to find a local food provayor? Add a <%= link_to 'New Location', new_location_path %>
 
 
-<%= javascript_tag "arr = #{@locations.to_json}" %>
+<%= javascript_tag "var arr = #{@locations.to_json}" %>
 
 <script>
-
-
+$(document).ready(function(){
+  renderMap(document.getElementById("index-map"), arr[0], arr, 11)
+})
 </script>

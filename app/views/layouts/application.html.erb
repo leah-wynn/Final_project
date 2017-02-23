@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag 'favicon.ico' %>
     <title>FindFood</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application'%>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-     
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
   </head>
 
   <body>
     <div class="navbar navbar-fixed-top " role="navigation">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav"> 
-           <li><div class="hvr-pop"><%= link_to "Find Food", locations_path, class: "navbar-brand" %></div></li>
-           <li><%= link_to "About Us", root_path, class: "nav-link" %>
-        </ul>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><i class="fa fa-location-arrow fa-3x" aria-hidden="true"></i></li> 
+                <li><div class="hvr-pop"><%= link_to "Find Food", locations_path, class: "navbar-brand" %></div></li>
+                <li><%= link_to "About Us", root_path, class: "nav-link" %>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
-                
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-                <li><%= link_to "Edit User", edit_user_registration_path, class: "nav-link" %></li>
-                <%else%>
-                <li><%= link_to "Sign In", user_session_path, class: "nav-link" %></li>
-                <li><%= link_to "Sign Up",new_user_registration_path, class: "nav-link"%></li>
-
+                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                    <li><%= link_to "Edit User", edit_user_registration_path, class: "nav-link" %></li>
+                    <%else%>
+                    <li><%= link_to "Sign In", user_session_path, class: "nav-link" %></li>
+                    <li><%= link_to "Sign Up",new_user_registration_path, class: "nav-link"%></li>
                 <% end %>
             </ul>
+        </div>
     </div>
-</div>
-
     <%= yield %>
-    <div class="container"></div>
-    <script type="text/javascript" 
-    src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>">
-    </script>
+        <div class="container"></div>
+        <script type="text/javascript" 
+        src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>">
+        </script>
   </body>
 </html>

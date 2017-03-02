@@ -2,42 +2,41 @@
 
 <div class="center_it">
 
-  <h3><p style="margin:30px;">Some local food near you</p></h3>
+  <h2><p style="margin:30px;">Some local food near you</p></h2>
 </div>
 
-
+<div id="index-map"></div>
 
 <table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Category</th>
-    </tr>
-  </thead>
+
   <tbody>
+    
     <% @locations.each do |location| %>
+
       <tr>
         <td><%= link_to location.name, location %></td>
         <td><%= location.street %></td>
         <td><%= location.city %></td>
         <td><%= location.state %></td>
         <td><%= location.category.name %></td>
+        <%if user_signed_in? && current_user.role == "admin" %>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
+
     <% end %>
   </tbody>
 </table>
 
-<div id="index-map"></div>
+
 
 <br>
-
-Know a where to find a local food provayor? Add a <%= link_to 'New Location', new_location_path %>
-
+<% if user_signed_in? %>
+Know where to find a local food provayor? Add a <%= link_to 'New Location', new_location_path %>
+<%else%>
+Know where to find a local food provayor? <%= link_to 'Sign Up', new_user_registration_path %> or <%= link_to 'Sign In', user_session_path%> to add a location.
+<%end%>
 
 <%= javascript_tag "var arr = #{@locations.to_json}" %>
 
@@ -45,4 +44,10 @@ Know a where to find a local food provayor? Add a <%= link_to 'New Location', ne
 $(document).ready(function(){
   renderMap(document.getElementById("index-map"), arr[0], arr, 11)
 })
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://www.googleapis.com/geolocation/v1/geolocate?key=<%= Figaro.env.google_api_key %>');
+xhr.send(null);
 </script>
+
+

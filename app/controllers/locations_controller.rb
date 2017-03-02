@@ -2,24 +2,18 @@ class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   
 
-  def nearby(lng1, lat1, lng2, lat2)
-    if (lng1-lng2).abs <= 0.01 && (lat1-lat2).abs <= 0.01
-      return true
-    else
-      return false
-    end
-  end
-
-
   # GET /locations
   # GET /locations.json
   def index
     @locations = Location.all
+
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @locations = Location.all
+    @user = User.all
   end
 
   # GET /locations/new

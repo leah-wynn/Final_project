@@ -15,6 +15,30 @@
 }
 
 .link:hover {
-	color: grey;
+	color:grey;
 	text-decoration:none;
 }
+
+.page_image {
+/*position:absolute;*/
+width:100%;
+/*clip:rect( );*/
+
+}
+
+.navbar-sticky-bottom {
+	background-color: white;
+	margin-top: 20px;
+}
+
+.jumbotron {
+	background-image: url("strawbs.jpg");
+	background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+	margin:0;
+	width:100%;
+	height:700px;
+	padding:0;
+}
+

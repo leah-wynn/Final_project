@@ -7,14 +7,16 @@
   <h3><%= @location.description %></h3>
 </p>
 <p>
-<strong>Address</strong>
 <%= @location.address %>
 
 </div>
 <div id="location-map"></div>
+Something wrong? <%= link_to "Request change", edit_location_path(@location) %> here.
 
+<%if user_signed_in? && current_user.role == "admin" %>
 <%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<%end%>
+<p><%= link_to 'Back', locations_path %></p>
 
 <script>
     $(document).ready(function() {

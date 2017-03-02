@@ -7,30 +7,31 @@
   <br/>
   <br/>
   <br/>
-  <div class="center_it">
-    <h3>
-      <p>Connecting food provayors and artisians to the communities that might not know they exsist.</p>
-      <p> We focus on helping consumers find localy made food products and farmers markets.</p>
-    </h3>
-  <br/>
-  <br/>
-  <h2>
-    <i class="fa fa-location-arrow fa-1x" aria-hidden="true" style="color:#79e0a5"></i>
-    <%=link_to "Get Started", locations_path, class: "link" %></h2>
+  <div class="jumbotron">
+    <div class="well">
+      
+        <p><h2>Connecting food provayors and artisians to the communities that might not know they exsist.</h2></p>
+        <p><h2>We focus on helping consumers find localy made food products and farmers markets.</h2></p>
+      
+      <br/>
+      <br/>
+      <h2>
+      <i class="fa fa-location-arrow fa-1x" aria-hidden="true" style="color:#79e0a5"></i>
+      <%=link_to "Get Started", locations_path, class: "link" %></h2>
+    </div>
   </div>
-  <br/>
-  <br/>
-  <br/>
+  <div class="center_it">
+    <h1><p style="margin:30px;">How It Works</p></h1>
+  </div>
   <div id="index-map"></div>
   <%= javascript_tag "var arr = #{@locations.to_json}" %>
   <script>
 $(document).ready(function(){
-  renderMap(document.getElementById("index-map"), arr[0], arr, 8)
+  renderMap(document.getElementById("index-map"), arr[0], arr, 5)
 })
 </script>
 
 <div class="center_it">
-  <h1><p style="margin:30px;">How It Works</p></h1>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -55,7 +56,7 @@ $(document).ready(function(){
             </tr>
           </thead>
           <tbody>
-            <td> <h4>Find fresh local goods. Are you from out of town and don't know where to find fresh bread? Do you want to expand your knowledge of your locally made faire? Find goods that you can love and support a local economy</h4></td>
+            <td> <h4>Are you from out of town and don't know where to find fresh bread? Do you want to expand your knowledge of your locally made faire? Find goods that you can love and support a local economy</h4></td>
           </tbody>
         </table>
       </div>
@@ -75,5 +76,42 @@ $(document).ready(function(){
     </div>
  </div>
 </div>
+<h2>
+  <div class="center_it">
+    <i class="fa fa-location-arrow fa-1x" aria-hidden="true" style="color:#79e0a5"></i>
+    <%=link_to "Get Started", locations_path, class: "link" %>
+  </div>
+</h2>
+
+<%= image_tag("farmer.jpg", class: "page_image") %>
+
+<footer>
+  <nav class="navbar navbar-sticky-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="center_it">
+          <i class="fa fa-envelope fa-2x" aria-hidden="true" style="color:black"></i>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="center_it">
+          <i class="fa fa-instagram fa-2x" aria-hidden="true" style="color:black"></i>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="center_it">
+          <i class="fa fa-twitter-square fa-2x" aria-hidden="true" style="color:black"></i>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="center_it">
+          <i class="fa fa-envelope fa-2x" aria-hidden="true" style="color:black"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</footer>
 </body>
 </html>

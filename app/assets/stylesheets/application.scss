@@ -20,8 +20,8 @@
 body {
 	padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 #location-map, #index-map {
@@ -57,6 +57,12 @@ body {
 
 .table th {
   text-align:center;
+}
+
+.well {
+background: rgba(255, 255, 255, 0.8);
+text-align: center;
+border: none;
 }
 
 

@@ -4,7 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # geocoded_by :ip_address
-  # after_validation :geocode
-         
+	ROLES = %w[producer consumer admin].freeze
+
+	class Producer < User
+  # Things specific to an artist profile
+	end
+
+	class Consumer < User
+	  # Things specific to a listener profile
+	end
+
+	class Admin < User
+		
+   end
+
 end

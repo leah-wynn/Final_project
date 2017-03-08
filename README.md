@@ -2,7 +2,7 @@
 
 Some main features of this app would be:
 <p>Users can add known locations as well as browse locations others have added.</p> 
-<p>I employeed Google Maps API and Geolocater Gem to find users locations.</p> 
+<p>I employeed Google Maps API and Geocoder Gem to find users locations.</p> 
 <p>I am working on creating profile pages for food producers as well as better usablitly for users to search locations.</p> 
 
 <p>This app is a work in progress but please feel free to file an issue if you feel something needs to be changed.</p>

@@ -9,6 +9,6 @@ Some main features of this app would be:
 
 <p>To get this site up and running you fist need to install Rails. Here is a site that will walk you through the process step by step: http://installrails.com/</p>
 
-<p>In the terminal navigate to the file directory and run rails s to start the server. Visit the app by typing "localhost:3000" in your web browser.</p>
+<p>In the terminal navigate to the file directory and run `rails s` to start the server. Visit the app by typing "localhost:3000" in your web browser.</p>
 
 <p>Thanks so much for checking it out! </p>

@@ -27,8 +27,12 @@
   <%= javascript_tag "var arr = #{@locations.to_json}" %>
   <script>
 $(document).ready(function(){
-  renderMap(document.getElementById("index-map"), arr[0], arr, 5)
+  renderMap(document.getElementById("index-map"), arr[0], arr, 11)
 })
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://www.googleapis.com/geolocation/v1/geolocate?key=<%= Figaro.env.google_api_key %>');
+xhr.send(null);
 </script>
 
 <div class="center_it">

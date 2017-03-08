@@ -17,6 +17,7 @@
                 <li><i class="fa fa-location-arrow fa-3x" aria-hidden="true"></i></li> 
                 <li><div class="hvr-pop"><%= link_to "Find Food", locations_path, class: "navbar-brand" %></div></li>
                 <li><%= link_to "About Us", root_path, class: "nav-link" %>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
@@ -30,9 +31,11 @@
         </div>
     </div>
     <%= yield %>
+        
         <div class="container-fluid"></div>
         <script type="text/javascript" 
         src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_api_key %>">
         </script>
+        
   </body>
 </html>

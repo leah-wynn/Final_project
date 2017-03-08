@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'welcome' => 'welcome#index'
 
+  get 'category' => 'locations#category'
   
 
   resources :producers

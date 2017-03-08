@@ -1,6 +1,10 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   
+  def items_by_category
+    @category = Category.find(params[:category_id])
+    @locations = Location.where(category_id: params[:category_id])
+  end
 
   # GET /locations
   # GET /locations.json

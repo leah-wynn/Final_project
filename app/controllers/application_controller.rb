@@ -9,4 +9,8 @@ protected
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :role, :name, :city, :state, :location_id ])
 end
 
+def categories
+  	@categories = Category.order(:name)
+  end
+
 end

@@ -22,7 +22,6 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'cancancan'
-gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'figaro'
 gem 'bootstrap-sass'

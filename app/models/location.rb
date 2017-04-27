@@ -1,6 +1,5 @@
 class Location < ApplicationRecord
 	has_many :producers
-	has_many :ghosts
 	belongs_to :category
 
 geocoded_by :address

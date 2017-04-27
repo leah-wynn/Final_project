@@ -1,0 +1,7 @@
+<%= @user.name %>
+
+<%if current_user.producer?%>
+<%= link_to "Add a location to your profile", update_location_path %>
+    <%= f.select :location_id, Location.all.collect { |loc| [loc.name, loc.id] }, {include_blank: "Choose a location"} %>
+    <%= f.submit %>
+    <%end%>
